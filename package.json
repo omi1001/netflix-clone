@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   
-  "homepage": "https://om1001.github.io/<YOUR_REPO_NAME>",
+  "homepage": "https://om1001.github.io/netflix-clone/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
