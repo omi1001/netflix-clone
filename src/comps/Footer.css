@@ -1,0 +1,52 @@
+/* src/components/Footer.css */
+
+.footer-container {
+  color: #808080; /* Netflix's standard grey text */
+  background-color: #111;
+  padding: 40px 0;
+  margin-top: 50px; /* Add some space above the footer */
+}
+
+.footer-container .container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.footer-social-links a {
+  color: white;
+  margin-right: 20px;
+  font-size: 1.5rem;
+  /* Add styling for icons if you use them */
+}
+
+.footer-links a {
+  display: block;
+  color: #808080;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.service-code-button {
+  background-color: transparent;
+  border: 1px solid #808080;
+  color: #808080;
+  padding: 0.5em 1em;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.service-code-button:hover {
+  color: white;
+  border-color: white;
+}
+
+.copyright-text {
+  font-size: 0.75rem;
+  margin-top: 20px;
+}

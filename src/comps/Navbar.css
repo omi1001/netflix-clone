@@ -1,0 +1,76 @@
+
+.navbar {
+    /* Fixed position at the top */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    z-index: 100; /* Ensures it stays on top of other content */
+
+    /* Smooth transition for the background color */
+    transition: background-color 0.4s ease-in-out;
+
+    /* Start with a transparent gradient background */
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
+}
+
+/* This class is added by React when the user scrolls */
+.nav-scrolled {
+    background-color: #111; /* Solid black background */
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    /* Takes the menu out of the normal document flow */
+    position: absolute;
+    top: 100%; /* Positions it right below the main navbar */
+    left: 0;
+    width: 100%;
+    
+    /* The semi-transparent background you wanted */
+    background-color: rgba(0, 0, 0, 0.9);
+    
+    /* Adds some spacing and a subtle bottom border */
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* src/components/Navbar.css */
+
+/* ... (your existing CSS is above this) ... */
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.btn-search {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+.search-input {
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  
+  /* Hidden by default */
+  width: 0;
+  opacity: 0;
+  transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.search-input.open {
+  /* Visible when 'open' class is applied */
+  width: 220px;
+  opacity: 1;
+  margin-left: 10px;
+}

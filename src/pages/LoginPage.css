@@ -1,0 +1,161 @@
+/* src/pages/LoginPage.css */
+
+.login-page {
+  position: relative;
+  height: 100vh;
+  background: black;
+  color: white;
+}
+
+.login-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+background: url('https://static1.howtogeekimages.com/wordpress/wp-content/uploads/2025/02/netflix-logo-with-some-netflix-shows-in-the-background-1.jpg') center center/cover no-repeat;  opacity: 0.4;
+  z-index: 1;
+}
+
+
+
+.login-logo {
+  height: 45px;
+}
+
+.login-body {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin-bottom: 10px;
+}
+
+.login-form-container {
+  max-width: 450px;
+  width: 100%;
+  padding: 60px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  margin-bottom: 100px;
+  
+  /* NEW: Add the animation */
+  animation: fadeInSlideUp 0.6s ease-out forwards;
+}
+
+/* NEW: Define the animation */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-form-container h1 {
+  font-size: 2rem;
+  margin-bottom: 28px;
+}
+
+.login-form-container input {
+  width: 100%;
+  height: 50px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: white;
+  font-size: 1rem;
+  
+  /* NEW: Add a smooth transition for the input fields */
+  transition: background-color 0.3s ease;
+}
+
+/* NEW: Add a 'focus' style for when you click the input */
+.login-form-container input:focus {
+  background-color: #454545;
+  outline: none; /* Removes the default blue/orange ring */
+}
+
+.login-button {
+  width: 100%;
+  padding: 16px;
+  margin: 24px 0 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e50914;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  
+  /* NEW: Add a smooth transition for the button */
+  transition: background-color 0.3s ease;
+}
+
+/* NEW: Add a 'hover' style for the button */
+.login-button:hover {
+  background-color: #c40812; /* A slightly darker red */
+}
+
+.login-help {
+  display: flex;
+  justify-content: space-between;
+  color: #b3b3b3;
+  font-size: 0.8rem;
+}
+
+.login-help a {
+  color: #b3b3b3;
+  text-decoration: none;
+  /* NEW: Add a smooth transition for links */
+  transition: color 0.3s ease;
+}
+.login-help a:hover {
+  text-decoration: underline;
+  /* NEW: Add a color change on hover */
+  color: #fff;
+}
+
+.login-signup-now {
+  margin-top: 40px;
+  color: #8c8c8c;
+}
+
+.login-signup-now a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  /* NEW: Add a smooth transition for links */
+  transition: color 0.3s ease;
+}
+.login-signup-now a:hover {
+  text-decoration: underline;
+}
+
+.login-recaptcha {
+  font-size: 0.8rem;
+  color: #8c8c8c;
+  margin-top: 12px;
+  display: block;
+}
+.login-recaptcha a {
+  color: #0071eb;
+  text-decoration: none;
+}
+
+.login-error {
+  background-color: #e87c03; /* Netflix orange/yellow warning */
+  color: white;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}

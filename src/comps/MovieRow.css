@@ -1,0 +1,245 @@
+/* src/components/MovieRow.css */
+
+.movie-row {
+  margin-left: 20px;
+  color: white;
+  position: relative;
+  overflow: visible !important; /* Fix 1: Overrides AOS clipping */
+  z-index: 20;
+}
+
+.row-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.row-posters {
+  display: flex;
+  overflow-x: scroll; /* We need this for scrolling */
+
+  /* This is the fix: 
+    We add 80px of space above the posters, so when the 
+    card expands, it has room and won't be clipped.
+  */
+  padding-top: 80px; 
+
+  padding-bottom: 120px; /* This gives space for it to expand down */
+  padding-left: 20px;
+  padding-right: 20px;
+
+  /* This helps ensure the overflow behavior is clean */
+  clip-path: inset(0 0 0 0);
+}
+
+/* Hide scrollbars */
+.row-posters::-webkit-scrollbar { display: none; }
+.row-posters { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 1. The Poster Container */
+.poster-container {
+  position: relative;
+  flex-shrink: 0;
+  margin-right: 10px;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+}
+
+/* 3. The Hover Effect */
+.poster-container:hover {
+  z-index: 101; /* Fix 3: Puts card above the navbar (z-index 100) */
+  transform: scale(1.1);
+}
+
+.row-poster {
+  object-fit: contain;
+  width: 100%;
+  max-height: 180px;
+  border-radius: 4px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.poster-container:hover .row-poster {
+  opacity: 0; /* Hide the original poster */
+}
+
+/* 2. The Expanded Card (Initially Hidden) */
+.expanded-card {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 320px;
+  z-index: 100; /* This z-index is for the card itself */
+  background-color: #181818;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.poster-container:hover .expanded-card {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1); 
+}
+
+/* 4. Styling for the Expanded Card Content */
+.expanded-video {
+  width: 100%;
+  height: 200px;
+  background-color: #000;
+}
+
+.expanded-backdrop {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expanded-video > div, .expanded-video iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.expanded-details {
+  padding: 1rem;
+}
+
+.expanded-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.expanded-overview {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+  height: 50px;
+}
+
+.expanded-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Control Buttons --- */
+/* This is the base style for ALL buttons */
+.control-btn {
+  background-color: rgba(42, 42, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin-right: 12px; /* Cleaned up margin */
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.control-btn:hover {
+  border-color: white;
+}
+
+/* Specific styles for the play button */
+.control-btn.play {
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  width: 32px;
+  padding: 0;
+  justify-content: center;
+  transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.play-icon {
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.play-text {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  width: 0;
+  opacity: 0;
+  margin-left: 0;
+  transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out, margin-left 0.3s ease-in-out;
+}
+
+.control-btn.play:hover {
+  width: 90px;
+  border-radius: 5px;
+}
+
+.control-btn.play:hover .play-text {
+  width: auto;
+  opacity: 1;
+  margin-left: 0.4rem;
+}
+
+.rating {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* --- Scroll Arrow Buttons --- */
+.scroll-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-top: 50px; 
+  padding-bottom: 120px;
+  height: auto;
+}
+
+.movie-row:hover .scroll-arrow {
+  opacity: 1;
+}
+
+.scroll-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.scroll-arrow.left {
+  left: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.scroll-arrow.right {
+  right: 0;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.control-btn.wishlist.active {
+  background-color: #e50914; /* Netflix Red */
+  border-color: #e50914;
+  transform: rotate(360deg); /* Add a little spin animation */
+  transition: background-color 0.3s, transform 0.4s;
+}
+

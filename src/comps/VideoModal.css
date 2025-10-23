@@ -1,0 +1,49 @@
+/* src/components/VideoModal.css */
+
+.video-modal-overlay {
+  position: fixed; /* This is the key property for the floating effect */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures it's on top of other content */
+}
+
+.video-modal-content {
+  position: relative;
+  background-color: #000;
+  padding: 10px;
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.close-button {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

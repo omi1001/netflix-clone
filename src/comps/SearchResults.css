@@ -1,0 +1,78 @@
+/* src/components/SearchResults.css */
+
+.search-results-container {
+  padding: 100px 4%; /* 100px padding-top to be below the navbar */
+  color: white;
+}
+
+.search-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.search-poster-card {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search-poster-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.search-poster-card:hover {
+  transform: scale(1.08);
+}
+
+.search-poster-card {
+  position: relative; /* This might already be here, but it's good to be sure */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* This is our new remove button */
+.btn-remove-from-list {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  
+  /* Style it like the other buttons */
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 0;
+}
+
+.btn-remove-from-list:hover {
+  background-color: #e50914;
+  border-color: #e50914;
+}
+
+/* This is the hover effect that was ALREADY here,
+   it just scales the card without making it invisible. */
+.search-poster-card:hover {
+  transform: scale(1.08);
+}
